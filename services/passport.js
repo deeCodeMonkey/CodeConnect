@@ -45,7 +45,8 @@ passport.use(new LinkedInStrategy({
                             email: profile._json.emailAddress,
                             photo: profile._json.pictureUrl,
                             headline: profile._json.headline,
-                            location: profile._json.location.name
+                            location: profile._json.location.name,
+                            linkedInProfile: profile._json.publicProfileUrl
                         }).save()
                             .then((user) => {
                                 done(null, user)

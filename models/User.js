@@ -7,7 +7,23 @@ const userSchema = new Schema({
     email: String,
     photo: String,
     headline: String,
-    location: String
+    location: String,
+    linkedInProfile: String,
+
+    gitHub: String, //{ type: String, default: '' }
+    stackOverflow: String,
+    portfolioSite: String,
+    aboutMe: String,
+    skills: String,
+
+    // `project` is an object that stores a Project id
+    // The ref property links the ObjectId to the Project model
+    // This allows us to populate the User with an associated Project
+    project: [{
+        type: Schema.Types.ObjectId,
+        ref: "Project"
+    }]
+
 });
 
 //instance of User record in 'users' collection with userSchema
