@@ -8,7 +8,7 @@ const projectSchema = new Schema({
     description: String,
     requirements: String,
     location: String,
-    dueDate: String
+    dueDate: Date
 });
 
 var Project = mongoose.model('projects', projectSchema);
