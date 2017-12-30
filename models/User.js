@@ -2,6 +2,7 @@
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
+    //pulled in from linkedin
     linkedInId: String,
     fullName: String,
     email: String,
