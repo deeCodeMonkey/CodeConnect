@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import linkedin-button from '../assets/logo.png';
+import linkedinButton from '../assets/linkedin-button.png';
 
 
 class Header extends Component {
@@ -11,7 +11,7 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/linkedin"><img src={logo} className="App-logo" alt="linkedin" /></a></li>;
+                return <li><a href="/auth/linkedin"><img src={linkedinButton} className="App-logo" alt="linkedin" /></a></li>;
             default:
                 return <li><a href="/api/logout">Logout</a></li>;
         }
