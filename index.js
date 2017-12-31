@@ -12,19 +12,21 @@ const app = express();
 
 
 //HEROKU Mongoose
-if (process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI);
-} else {
-    ////database local port
-    //mongoose.connect("mongodb://localhost:27017/project3", {
-    //    useMongoClient: true
-    //});
+//if (process.env.MONGODB_URI) {
+//    mongoose.connect(process.env.MONGODB_URI);
+//} else {
+//    ////database local port
+//    //mongoose.connect("mongodb://localhost:27017/project3", {
+//    //    useMongoClient: true
+//    //});
 
-    //connect to external mongo db provider
-    mongoose.connect(keys.mongoURI);
+//    //connect to external mongo db provider
+//    mongoose.connect(keys.mongoURI);
 
-}
+//}
 
+//connect to external mongo db provider
+mongoose.connect(keys.mongoURI);
 
 require('./models/Project');
 require('./models/User');
@@ -53,8 +55,17 @@ require('./routes/authRoutes')(app);
 require('./routes/appRoutes')(app);
 
 
+//Heroku
+if (process.env.NODE_ENV === 'production') {
+    //Express will serve up production assets
+    app.use(express.static('client/build'));
+    //Express will serve up index.html if route unknown
+    const path = require('path');
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
 
-
+}
 
 
 var PORT = process.env.PORT || 8080;
