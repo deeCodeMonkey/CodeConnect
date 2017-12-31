@@ -12,19 +12,21 @@ const app = express();
 
 
 //HEROKU Mongoose
-if (process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI);
-} else {
-    ////database local port
-    //mongoose.connect("mongodb://localhost:27017/project3", {
-    //    useMongoClient: true
-    //});
+//if (process.env.MONGODB_URI) {
+//    mongoose.connect(process.env.MONGODB_URI);
+//} else {
+//    ////database local port
+//    //mongoose.connect("mongodb://localhost:27017/project3", {
+//    //    useMongoClient: true
+//    //});
 
-    //connect to external mongo db provider
-    mongoose.connect(keys.mongoURI);
+//    //connect to external mongo db provider
+//    mongoose.connect(keys.mongoURI);
 
-}
+//}
 
+//connect to external mongo db provider
+mongoose.connect(keys.mongoURI);
 
 require('./models/Project');
 require('./models/User');
