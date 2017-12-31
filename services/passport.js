@@ -1,7 +1,7 @@
 ﻿const passport = require('passport');
 const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 const mongoose = ('mongoose');
-const keys = require('../config/keys');
+const config = require('../config/config');
 
 //Bring over mongoose constructors
 var db = require('../models');
@@ -21,8 +21,8 @@ passport.deserializeUser((id, done) => {
 
 
 passport.use(new LinkedInStrategy({
-    clientID: keys.LINKEDIN_API_KEY,
-    clientSecret: keys.LINKEDIN_SECRET_KEY,
+    clientID: config.LINKEDIN_API_KEY,
+    clientSecret: config.LINKEDIN_SECRET_KEY,
     callbackURL: '/auth/callback',
     scope: ['r_basicprofile', 'r_emailaddress'],
     proxy: true
