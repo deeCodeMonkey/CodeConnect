@@ -6,7 +6,7 @@ const passport = require('passport');
 const cookieSession = require("cookie-session");
 
 const path = require("path");
-const keys = require('./config/keys');
+const config = require('./config/config');
 
 const app = express();
 
@@ -26,7 +26,7 @@ const app = express();
 //}
 
 //connect to external mongo db provider
-mongoose.connect(keys.mongoURI);
+mongoose.connect(config.mongoURI);
 
 require('./models/Project');
 require('./models/User');
@@ -42,7 +42,7 @@ app.use(
     cookieSession({
         //7 days in milliseconds
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        keys: [keys.cookieKey]
+        keys: [config.cookieKey]
     })
 );
 //to use cookies for authentication
@@ -55,7 +55,7 @@ require('./routes/authRoutes')(app);
 require('./routes/appRoutes')(app);
 
 
-//Heroku
+//Heroku client side build and route reference
 if (process.env.NODE_ENV === 'production') {
     //Express will serve up production assets
     app.use(express.static('client/build'));
