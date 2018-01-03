@@ -11,9 +11,13 @@ import ProfileLayout from './profile/ProfileLayout';
 
 class App extends Component {
 
-    componentDidMount() {
-        this.props.fetchUser();
+    async componentDidMount() {
+        await this.props.fetchUser()
+        if (this.props.auth._id){
+            this.props.fetchProfile(this.props.auth._id);
+        }
     }
+
 
     render() {
         return (
@@ -31,6 +35,12 @@ class App extends Component {
     }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    };
+}
+
+export default connect(mapStateToProps, actions)(App);
 
 

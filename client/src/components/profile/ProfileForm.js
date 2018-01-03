@@ -1,9 +1,8 @@
 ﻿import React, { Component } from 'react';
 //Field component allows all html form inputs
 import { reduxForm, Field } from 'redux-form';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { submitProfile } from '../../actions';
+import * as actions from '../../actions';
 import ProfileField from './ProfileField';
 
 
@@ -28,7 +27,7 @@ class ProfileForm extends Component {
     render() { 
         //handlesubmit from redux-form
         const { handleSubmit } = this.props;
-
+            
         return (
             <div>
                 <form onSubmit={
@@ -49,14 +48,16 @@ class ProfileForm extends Component {
 }
 
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    };
 }
 
 export default reduxForm({
     form: 'profileForm'
 })(
-    connect(mapStateToProps, { submitProfile })(ProfileForm)
+    connect(mapStateToProps, actions)(ProfileForm)
 );
 
 

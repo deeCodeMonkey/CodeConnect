@@ -7,22 +7,21 @@ export const fetchUser = () => async dispatch => {
 };
 
 export function submitProfile(values, id, callback) {
-    const res = axios.post(`/api/profile/${id}`, values)
+    const result = axios.post(`/api/profile/${id}`, values)
         .then(callback());
     //send to reducer
     return {
         type: SUBMIT_PROFILE,
-        payload: res
+        payload: result
     };
-
 };
 
 export function fetchProfile(id) {
-    const res = axios.get(`/api/profile/${id}`);
+    const result = axios.get(`/api/profile/${id}`)
 
     return {
         type: FETCH_PROFILE,
-        payload: res
+        payload: result
     };
 
 };
