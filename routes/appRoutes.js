@@ -6,15 +6,15 @@ const User = require('../models/User');
 module.exports = (app) => {
 
     //Add-edit User profile info
-    app.post("/:id", function (req, res) {
+    app.post("/api/profile/:id", function (req, res) {
         User.findOne({ _id: req.params.id }, function (err, data) {
             let userData = data;
-            userData.gitHub = req.body.gitHub;
-            userData.stackOverflow = req.body.stackOverflow;
-            userData.portfolioSite = req.body.portfolioSite;
-            userData.aboutMe = req.body.aboutMe;
+            userData.gitHub = req.body.github;
+            userData.stackOverflow = req.body.stackoverflow;
+            userData.portfolioSite = req.body.portfoliosite;
+            userData.aboutMe = req.body.aboutme;
             userData.skills = req.body.skills;
-            userData.location = req.body.location;
+            //userData.location = req.body.location;
 
             userData.save()
                 .then((doc) => {
