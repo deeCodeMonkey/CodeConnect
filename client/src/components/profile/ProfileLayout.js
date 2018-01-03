@@ -5,12 +5,14 @@ import ProfileInfo from './ProfileInfo';
 class ProfileLayout extends Component {
 
     state = {
-        profileDisplay: false
+        profileDisplay: true
     }
 
     renderContent() {
         if (this.state.profileDisplay) {
-            return <ProfileInfo />
+            return <ProfileInfo 
+                onEditProfile={() => this.setState({profileDisplay: false})}
+                />
         }
         return <ProfileForm
             onProfileSubmit={() => this.setState({profileDisplay: true})}
