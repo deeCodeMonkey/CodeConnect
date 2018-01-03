@@ -27,22 +27,21 @@ module.exports = (app) => {
         })
     });
 
+    //Get User profile info
+    app.get("/api/profile/:id", function (req, res) {
+        User.findOne({ _id: req.params.id })
+            .then((docs) => {
+                res.json(docs);
+            })
+                .catch((err) => {
+                    console.log(err);
+                    res.status(500).send(err.message ? err.message : 'Cannot GET Profile from Mongo.');
+                });
+    });
+
 
     //Create new project
     app.post("/project", function (req, res) {
-
-        //const { projectOwner, image, title, description, requirements, location, dueDate } = req.body;
-
-        //let saveProject = {
-        //    projectOwner,
-        //    image,
-        //    title,
-        //    description,
-        //    requirements,
-        //    location,
-        //    dueDate
-        //};
-        //console.log('saaaveeee', saveProject);
 
         let saveProject = new Project();
 

@@ -12,11 +12,11 @@ class ProfileForm extends Component {
     renderFields() {
         return (
             <div>
-                <Field label="GitHub profile site" type="text" name="github" component={ProfileField} />
-                <Field label="StackOverflow profile site" type="text" name="stackoverflow" component={ProfileField} />
-                <Field label="Portfolio site" type="text" name="portfoliosite" component={ProfileField} />
                 <Field label="About Me" type="text" name="aboutme" component={ProfileField} />
                 <Field label="Skills, Specialty" type="text" name="skills" component={ProfileField} />
+                <Field label="Portfolio site" type="text" name="portfoliosite" component={ProfileField} /> 
+                <Field label="GitHub profile site" type="text" name="github" component={ProfileField} />
+                <Field label="StackOverflow profile site" type="text" name="stackoverflow" component={ProfileField} />    
             </div>
         );
     }
@@ -36,9 +36,9 @@ class ProfileForm extends Component {
                 }>
                     { this.props.auth ? 
                         this.renderFields() : <p>Loading...</p>}
-                    <Link to="/main" className="red btn-flat white-text">
+                    <button type="button" className="red btn-flat white-text" onClick={this.props.onProfileSubmit}>
                         Cancel
-                    </Link>
+                    </button>
                     <button type="submit" className="blue btn-flat right white-text">
                         Submit
                     </button>
