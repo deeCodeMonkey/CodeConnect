@@ -14,7 +14,9 @@ class App extends Component {
     async componentDidMount() {
         await this.props.fetchUser()
         if (this.props.auth._id){
-            this.props.fetchProfile(this.props.auth._id);
+            //this.props.fetchProfile(this.props.auth._id);
+            this.props.fetchUserProjects(this.props.auth._id)
+
         }
     }
 

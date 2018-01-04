@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE } from './types';
+import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user')
@@ -21,6 +21,16 @@ export function fetchProfile(id) {
 
     return {
         type: FETCH_PROFILE,
+        payload: result
+    };
+
+};
+
+export function fetchUserProjects(id) {
+    const result = axios.get(`/api/projects/${id}`)
+
+    return {
+        type: FETCH_USER_PROJECTS,
         payload: result
     };
 
