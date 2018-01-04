@@ -1,8 +1,18 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../actions';
 import ProjectList from './projects/ProjectList';
 
 class ProfileInfo extends Component {
+
+    async componentDidMount() {
+        await this.props.fetchUser()
+        if (this.props.userData._id) {
+            //this.props.fetchProfile(this.props.userData._id);
+            this.props.fetchUserProjects(this.props.userData._id)
+        }
+    }
+
 
     render() {
         return (
@@ -58,5 +68,5 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(ProfileInfo);
+export default connect(mapStateToProps, actions)(ProfileInfo);
 

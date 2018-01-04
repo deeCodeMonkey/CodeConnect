@@ -17,7 +17,6 @@ class ProjectList extends Component {
                         })
                         : <p>No Projects Assigned</p>
                 }
-
             </div>
         );
     }
@@ -25,8 +24,8 @@ class ProjectList extends Component {
 
 
 function mapStateToProps(state) {
-    console.log('PROFILE-PROJECTS======', state.profile);
-    console.log('PROJECTS======', state.profile.project);
+    //console.log('PROFILE-PROJECTS======', state.profile);
+    //console.log('PROJECTS======', state.profile.project);
     return {
         auth: state.auth,
         profile: state.profile
