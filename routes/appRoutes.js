@@ -118,8 +118,23 @@ module.exports = (app) => {
     });
 
 
+    //Get list of projects by User
+    app.get("/api/projects/:id", function (req, res) {
+        User.findOne({ _id: req.params.id })
+            .populate("project")
+            .exec()
+            .then((docs) => {
+                res.json(docs);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message ? err.message : 'Cannot GET user projects from Mongo.');
+            });
+    });
+
+
     //Add project to user
-    //req.user to get curret user that is logged in
+    //req.user to get current user (data) that is logged in
 
 
 

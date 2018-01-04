@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ProfileForm from './ProfileForm';
+import ProjectList from './projects/ProjectList';
 
 class ProfileInfo extends Component {
 
@@ -38,9 +38,12 @@ class ProfileInfo extends Component {
                     <div>{this.props.formValues.stackOverflow}</div>
                     <div>{this.props.formValues.portfolioSite}</div>
                 </div>
-                    <button type="button" className="blue btn-flat right white-text" onClick={this.props.onEditProfile}>
-                        Edit Profile
+                <button type="button" className="blue btn-flat right white-text" onClick={this.props.onEditProfile}>
+                    Edit Profile
                     </button>
+
+                < ProjectList />
+
             </div>
         );
     }

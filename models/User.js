@@ -22,7 +22,7 @@ const userSchema = new Schema({
     // This allows us to populate the User with an associated Project
     project: [{
         type: Schema.Types.ObjectId,
-        ref: "Project"
+        ref: "projects"
     }]
 
 });
