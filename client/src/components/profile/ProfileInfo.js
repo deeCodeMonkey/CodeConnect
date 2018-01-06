@@ -29,7 +29,7 @@ class ProfileInfo extends Component {
                         <div>{this.props.formValues.headline}</div>
                     </div>
                     <div>
-                        <label>Photo</label>
+             
                         <img className="circle responsive-img" src={this.props.formValues.photo} alt="photo" />
                         <div>{this.props.formValues.photo}</div>
                     </div>
@@ -73,6 +73,7 @@ class ProfileInfo extends Component {
                         <div>{this.props.formValues.portfolioSite}</div>
 
                     </div>
+                    
                     <button type="button" className="blue btn-flat white-text" onClick={this.props.onEditProfile}>
                         Edit Profile
                     </button>

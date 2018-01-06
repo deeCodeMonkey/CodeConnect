@@ -11,7 +11,7 @@ const userSchema = new Schema({
     location: String,
     linkedInProfile: String,
 
-    gitHub: String, //{ type: String, default: '' }
+    gitHub: String,
     stackOverflow: String,
     portfolioSite: String,
     aboutMe: String,
