@@ -8,7 +8,7 @@ class ProjectList extends Component {
     render() {
         return (
             <div>
-                PROJECT LIST  =================================   
+                PROJECTS BOOKED  =================================   
   
                 {
                     this.props.profile.project ?
