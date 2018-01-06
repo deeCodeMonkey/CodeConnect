@@ -33,10 +33,10 @@ module.exports = (app) => {
             .then((docs) => {
                 res.json(docs);
             })
-                .catch((err) => {
-                    console.log(err);
-                    res.status(500).send(err.message ? err.message : 'Cannot GET Profile from Mongo.');
-                });
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message ? err.message : 'Cannot GET Profile from Mongo.');
+            });
     });
 
 
@@ -78,8 +78,7 @@ module.exports = (app) => {
 
     });
 
-
-    //Populate projects based on search criteria: keyword OR date
+    //Populate projects based on search criteria: keyword(s) separated by space AND/OR date(s)
     app.post("/api/search", function (req, res) {
 
         //Search criteria
@@ -87,34 +86,36 @@ module.exports = (app) => {
         let startDate = req.body.startDate; //format '2018, 1, 1'
         let endDate = req.body.endDate; //format '2018, 12, 31'
 
+        let searchCriteria = {};
+
         if (requirementsKeyword) {
-            requirementsKeyword.toLowerCase();
-
-            Project.find({})
-                .then((docs) => {
-                    let list = docs.filter(doc => doc.requirements.toLowerCase().includes(requirementsKeyword));
-                    res.json(list);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    res.status(500).send(err.message ? err.message : 'ERRORED! Re-enter search criteria. Search by keyword OR date, not both');
-                });
+            requirementsKeyword = requirementsKeyword.toLowerCase();
+            let keywords = requirementsKeyword.split(' ');
+            searchCriteria.requirements = [];
+            keywords.forEach(function (el) {
+                searchCriteria.requirements.push(new RegExp(el, 'i'));
+            });
+        }
+        if (startDate) {
+            searchCriteria.dueDate = { "$gte": new Date(startDate) };
+        }
+        if (endDate) {
+            if (searchCriteria.dueDate) {
+                searchCriteria.dueDate = { "$gte": new Date(startDate), "$lt": new Date(endDate) };
+            } else {
+                searchCriteria.dueDate = { "$lt": new Date(endDate) };
+            }
         }
 
+        Project.find(searchCriteria)
+            .then((docs) => {
+                res.json(docs);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message ? err.message : 'ERRORED! Re-enter search criteria');
+            });
 
-        if (startDate && endDate) {
-            Project.find(
-                //{ "dueDate": { "$gte": new Date(2018, 1, 1), "$lt": new Date(2018, 12, 15) } })
-                { "dueDate": { "$gte": new Date(startDate), "$lt": new Date(endDate) } })
-                .then((docs) => {
-                    res.json(docs);
-                })
-                .catch((err) => {
-                    console.log(err);
-                    res.status(500).send(err.message ? err.message : 'ERRORED! Re-enter search criteria. Search by keyword OR date, not both');
-                });
-        }
-        
     });
 
 

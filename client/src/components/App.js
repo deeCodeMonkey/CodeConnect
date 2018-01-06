@@ -26,8 +26,17 @@ class App extends Component {
                 <BrowserRouter>
                     <div className="container">
                         <Header />
-                        <Route exact path="/" component={Landing} />
-                        <Route exact path="/main" component={Main} />
+                        {
+                            (this.props.auth)
+                                ? <Route exact path="/" component={Main} /> 
+                                : <Route exact path="/" component={Landing} /> 
+                        }
+                        {
+                            (this.props.auth)
+                                ? <Route exact path="/main" component={Main} />
+                                : <Route exact path="/main" component={Landing} />
+                        }
+                        /*route for dev*/
                         <Route exact path="/profile" component={ProfileLayout} />
                     </div>
                 </BrowserRouter>
