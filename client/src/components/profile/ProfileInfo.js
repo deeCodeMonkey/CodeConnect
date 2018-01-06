@@ -21,8 +21,6 @@ class ProfileInfo extends Component {
 
     render() {
 
-
-
         return (
             <div>
                 <div>
@@ -32,7 +30,7 @@ class ProfileInfo extends Component {
                     </div>
                     <div>
                         <label>Photo</label>
-                        <img className="responsive-img" src="{this.props.formValues.photo}" alt="p" />
+                        <img className="circle responsive-img" src={this.props.formValues.photo} alt="photo" />
                         <div>{this.props.formValues.photo}</div>
                     </div>
                     <div>
@@ -62,16 +60,16 @@ class ProfileInfo extends Component {
                     <div>
                         <label>Sites</label>
 
-                        <a href="{this.props.formValues.linkedInProfile}"><img src={linkedin} className="icon-site" alt="linkedin" /></a>
+                        <a href={this.props.formValues.linkedInProfile}><img src={linkedin} className="icon-site" alt="linkedin" /></a>
                         <div>{this.props.formValues.linkedInProfile}</div>
 
-                        <a href="{this.props.formValues.gitHub}"><img src={github} className="icon-site" alt="github" /></a>
+                        <a href={this.props.formValues.gitHub}><img src={github} className="icon-site" alt="github" /></a>
                         <div>{this.props.formValues.gitHub}</div>
 
-                        <a href="{this.props.formValues.stackOverflow}"><img src={stackOverflow} className="icon-site" alt="stackoverflow" /></a>
+                        <a href={this.props.formValues.stackOverflow}><img src={stackOverflow} className="icon-site" alt="stackoverflow" /></a>
                         <div>{this.props.formValues.stackOverflow}</div>
 
-                        <a href="{this.props.formValues.portfolioSite}"><img src={portfolio} className="icon-site" alt="portfolio" /></a>
+                        <a href={this.props.formValues.portfolioSite}><img src={portfolio} className="icon-site" alt="portfolio" /></a>
                         <div>{this.props.formValues.portfolioSite}</div>
 
                     </div>
