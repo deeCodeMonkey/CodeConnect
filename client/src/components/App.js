@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import * as actions from '../actions';
 
+
 import Header from './Header';
 import Landing from './Landing';
 import Main from './Main';
@@ -36,8 +37,9 @@ class App extends Component {
                                 ? <Route exact path="/main" component={Main} />
                                 : <Route exact path="/main" component={Landing} />
                         }
-                        /*route for dev*/
+                        
                         <Route exact path="/profile" component={ProfileLayout} />
+                        
                     </div>
                 </BrowserRouter>
             </div>
