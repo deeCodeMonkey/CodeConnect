@@ -25,7 +25,7 @@ class App extends Component {
         return (
             <div className="container">
                 <BrowserRouter>
-                    <div className="container">
+                    <div>
                         <Header />
                         {
                             (this.props.auth)

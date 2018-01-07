@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS } from './types';
+import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS, SEARCH_PROJECTS, FETCH_OPEN_PROJECTS } from './types';
 
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user')
@@ -29,7 +29,7 @@ export function submitProfile(values, id, callback) {
 };
 
 export function fetchProfile(id) {
-    const result = axios.get(`/api/profile/${id}`)
+    const result = axios.get(`/api/profile/${id}`);
 
     return {
         type: FETCH_PROFILE,
@@ -39,10 +39,30 @@ export function fetchProfile(id) {
 };
 
 export function fetchUserProjects(id) {
-    const result = axios.get(`/api/projects/${id}`)
+    const result = axios.get(`/api/projects/${id}`);
 
     return {
         type: FETCH_USER_PROJECTS,
+        payload: result
+    };
+
+};
+
+export function searchProjects(keyword, startDate, endDate) {
+    const result = axios.post("/api/search");
+
+    return {
+        type: SEARCH_PROJECTS,
+        payload: result
+    };
+
+};
+
+export function fetchOpenProjects() {
+    const result = axios.get('/api/projects');
+
+    return {
+        type: FETCH_OPEN_PROJECTS,
         payload: result
     };
 
