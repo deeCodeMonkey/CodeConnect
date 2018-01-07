@@ -39,7 +39,7 @@ export function fetchProfile(id) {
 };
 
 export function fetchUserProjects(id) {
-    const result = axios.get(`/api/projects/${id}`);
+    const result = axios.get(`/api/userprojects/${id}`);
 
     return {
         type: FETCH_USER_PROJECTS,

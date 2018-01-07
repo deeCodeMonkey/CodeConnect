@@ -57,11 +57,12 @@ class OpenProjectList extends Component {
             });
     }
 
+   
     render() {
         return (
             <div>
                 <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
-                <h1>PROJECT LIST</h1>
+                <h2>PROJECTS LIST</h2>
                 {this.state.openProjects.map((project) => {
                     return (
                         <OpenProjectItem key={project._id} {...project} />

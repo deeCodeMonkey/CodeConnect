@@ -120,8 +120,8 @@ module.exports = (app) => {
 
 
     //Get list of projects by User
-    app.get("/api/projects/:id", function (req, res) {
-        User.findOne({ _id: req.params.id })
+    app.get("/api/userprojects/:userid", function (req, res) {
+        User.findOne({ _id: req.params.userid })
             .populate("project")
             .exec()
             .then((docs) => {
@@ -130,6 +130,18 @@ module.exports = (app) => {
             .catch((err) => {
                 console.log(err);
                 res.status(500).send(err.message ? err.message : 'Cannot GET user projects from Mongo.');
+            });
+    });
+
+    //Get open project by ID
+    app.get("/api/projects/:id", function (req, res) {
+        Project.findOne({ _id: req.params.id })
+            .then((docs) => {
+                res.json(docs);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message);
             });
     });
 
