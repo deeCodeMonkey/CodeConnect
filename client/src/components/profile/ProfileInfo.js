@@ -29,9 +29,7 @@ class ProfileInfo extends Component {
                         <div>{this.props.formValues.headline}</div>
                     </div>
                     <div>
-             
                         <img className="circle responsive-img" src={this.props.formValues.photo} alt="photo" />
-                        <div>{this.props.formValues.photo}</div>
                     </div>
                     <div>
                         <div><h5>{this.props.formValues.fullName}</h5></div>
@@ -61,7 +59,6 @@ class ProfileInfo extends Component {
                         <label>Sites</label>
 
                         <a href={this.props.formValues.linkedInProfile}><img src={linkedin} className="icon-site" alt="linkedin" /></a>
-                        <div>{this.props.formValues.linkedInProfile}</div>
 
                         <a href={this.props.formValues.gitHub}><img src={github} className="icon-site" alt="github" /></a>
                         <div>{this.props.formValues.gitHub}</div>
