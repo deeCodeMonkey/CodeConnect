@@ -1,22 +1,36 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../../actions';
 
-const OpenProjectProfile = (props) => {
+class OpenProjectProfile extends Component {
 
-    return (
-        <div>
-            <h5>PROJECT PROFILE</h5>
-            <h6>PROJECTID{props.projectId}</h6>
-            <h6>{props.title}</h6>
-            <h6>{props.dueDate}</h6>
-            <h6>{props.requirements}</h6>
-            <h6>{props.projectOwner}</h6>
-            <h6>{props.image}</h6>
-            <h6>{props.description}</h6>
-            <h6>{props.location}</h6>
-            <button>Add Project to User</button>
-        </div>
-    );
+    componentDidMount() {
+        this.props.fetchProjectById(this.props.projectId);
+    }
+
+    render() {
+        return (
+            <div>
+                <h5>PROJECT PROFILE</h5>
+                <h6>{this.props.openProject.projectOwner}</h6>
+                <h6>{this.props.openProject.location}</h6>
+                <h6>{this.props.openProject.image}</h6>
+                <h6>{this.props.openProject.title}</h6>
+                <h6>{this.props.openProject.dueDate}</h6>
+                <h6>{this.props.openProject.requirements}</h6>
+                <h6>{this.props.openProject.description}</h6>
+
+                <button>Add Project to User</button>
+            </div>
+        );
+    }
 };
 
+function mapStateToProps(state) {
+    return {
+        auth: state.auth,
+        openProject: state.openProject
+    };
+}
 
-export default OpenProjectProfile;
+export default connect(mapStateToProps, actions)(OpenProjectProfile);

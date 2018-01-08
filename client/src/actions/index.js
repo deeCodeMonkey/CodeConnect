@@ -1,6 +1,7 @@
 ﻿import axios from 'axios';
-import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS, SEARCH_PROJECTS, FETCH_OPEN_PROJECTS } from './types';
+import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS, SEARCH_PROJECTS, FETCH_OPEN_PROJECTS, FETCH_PROJECT_BY_ID } from './types';
 
+//uses redux-thunk
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user')
     dispatch({ type: FETCH_USER, payload: res.data });
@@ -67,3 +68,16 @@ export function fetchOpenProjects() {
     };
 
 };
+
+export function fetchProjectById(id) {
+    const result = axios.get(`/api/projects/${id}`);
+
+    return {
+        type: FETCH_PROJECT_BY_ID,
+        payload: result
+    };
+
+};
+
+
+

@@ -21,6 +21,7 @@ const OpenProjectSearch = (props) => {
                         <input name="endDate" onChange={props.onChange} type="text" className="form-control" id="endDate" placeholder="End Date" />
                     </div>
                     <button type="submit" className="btn btn-default" onClick={props.onSubmit}>Search</button>
+                    
                 </form>
                 </div>
                 
