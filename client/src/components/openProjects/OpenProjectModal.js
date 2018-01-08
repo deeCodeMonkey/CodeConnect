@@ -7,10 +7,7 @@ import OpenProjectProfile from './OpenProjectProfile';
 class OpenProjectModal extends Component {
 
     onClickHandler = () => {
-        console.log('auth======', this.props.auth._id);
-        console.log('projectID======', this.props.projectId);
-        this.props.assignProjectToUser(this.props.auth._id, this.props.projectId);
-        this.props.closeModal();
+        this.props.assignProjectToUser(this.props.auth._id, this.props.projectId, this.props.closeModal);
     }
 
     render() {
@@ -23,6 +20,7 @@ class OpenProjectModal extends Component {
                 <OpenProjectProfile projectId={this.props.projectId}/>
                 <button onClick={this.onClickHandler}>Add Project to User</button>
                 <button onClick={this.props.closeModal}>Close</button>
+               
             </Modal>
         );
     }

@@ -155,7 +155,18 @@ module.exports = (app) => {
 
         User.findOneAndUpdate({ _id: req.params.id }, { $push: { project: openProjectId } }, { new: true })
             .then((docs) => {
+                //res.json(docs);
+                console.log(docs);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message);
+            });
+
+        Project.findOneAndUpdate({ _id: openProjectId }, { $push: { user: req.params.id } }, { new: true })
+            .then((docs) => {
                 res.json(docs);
+                console.log(docs);
             })
             .catch((err) => {
                 console.log(err);

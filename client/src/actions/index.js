@@ -79,11 +79,12 @@ export function fetchProjectById(id) {
 
 };
 
-export function assignProjectToUser(userId, projectId) {
-    console.log('action generator', projectId);
+export function assignProjectToUser(userId, projectId, callback) {
+    
     const result = axios.post(`/api/add/${userId}`, {
         openProjectId: projectId
-    });
+    })
+        .then(callback());
 
     return {
         type: ASSIGN_PROJECT_TO_USER,
