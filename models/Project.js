@@ -8,7 +8,12 @@ const projectSchema = new Schema({
     description: String,
     requirements: String,
     location: String,
-    dueDate: Date
+    dueDate: Date,
+
+    user: [{
+        type: Schema.Types.ObjectId,
+        ref: "users"
+    }]
 });
 
 var Project = mongoose.model('projects', projectSchema);

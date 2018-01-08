@@ -8,6 +8,7 @@ class OpenProjectList extends Component {
 
     state = {
         openProjects: [],
+        filteredProjects: [],
         keyword: '',
         startDate: '',
         endDate: ''
@@ -21,12 +22,17 @@ class OpenProjectList extends Component {
     fetchOpenProjects = () => {
         axios.get('/api/projects')
             .then((response) => {
-                this.setState({ openProjects: response.data });
+                this.setState({
+                    //openProjects: response.data,
+                    openProjects: response.data.filter(openProject => !openProject.user[0])
+                });
             })
             .catch((error) => {
                 console.log(error);
             });
     };
+
+    
 
     handleInputChange = event => {
         const value = event.target.value;
@@ -62,6 +68,7 @@ class OpenProjectList extends Component {
             <div>
                 <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
                 <h2>PROJECTS LIST</h2>
+               
                 {this.state.openProjects.map((project) => {
                     return (
                         <OpenProjectItem key={project._id} {...project} />
