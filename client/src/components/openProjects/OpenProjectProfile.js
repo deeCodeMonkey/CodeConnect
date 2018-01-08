@@ -8,6 +8,11 @@ class OpenProjectProfile extends Component {
         this.props.fetchProjectById(this.props.projectId);
     }
 
+    onClickHandler = () => {
+        console.log('auth', this.props.auth._id);
+        this.props.assignProjectToUser(this.props.auth._id, this.props.projectId);
+    }
+
     render() {
         return (
             <div>
@@ -19,8 +24,6 @@ class OpenProjectProfile extends Component {
                 <h6>{this.props.openProject.dueDate}</h6>
                 <h6>{this.props.openProject.requirements}</h6>
                 <h6>{this.props.openProject.description}</h6>
-
-                <button>Add Project to User</button>
             </div>
         );
     }

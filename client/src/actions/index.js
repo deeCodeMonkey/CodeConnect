@@ -1,5 +1,5 @@
 ﻿import axios from 'axios';
-import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS, SEARCH_PROJECTS, FETCH_OPEN_PROJECTS, FETCH_PROJECT_BY_ID } from './types';
+import { FETCH_USER, SUBMIT_PROFILE, FETCH_PROFILE, FETCH_USER_PROJECTS, SEARCH_PROJECTS, FETCH_OPEN_PROJECTS, FETCH_PROJECT_BY_ID, ASSIGN_PROJECT_TO_USER } from './types';
 
 //uses redux-thunk
 export const fetchUser = () => async dispatch => {
@@ -74,6 +74,19 @@ export function fetchProjectById(id) {
 
     return {
         type: FETCH_PROJECT_BY_ID,
+        payload: result
+    };
+
+};
+
+export function assignProjectToUser(userId, projectId) {
+    console.log('action generator', projectId);
+    const result = axios.post(`/api/add/${userId}`, {
+        openProjectId: projectId
+    });
+
+    return {
+        type: ASSIGN_PROJECT_TO_USER,
         payload: result
     };
 

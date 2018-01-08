@@ -41,7 +41,7 @@ module.exports = (app) => {
 
 
     //Create new project
-    app.post("/project", function (req, res) {
+    app.post("/api/project", function (req, res) {
 
         let saveProject = new Project();
 
@@ -147,9 +147,22 @@ module.exports = (app) => {
 
 
     //Add project to user
-    //req.user to get current user (data) that is logged in
+    app.post("/api/add/:id", function (req, res) {
+        console.log('called================', req.params.id);
+        
+        let openProjectId = req.body.openProjectId;
+        console.log('called2==================', openProjectId);
 
+        User.findOneAndUpdate({ _id: req.params.id }, { $push: { project: openProjectId } }, { new: true })
+            .then((docs) => {
+                res.json(docs);
+            })
+            .catch((err) => {
+                console.log(err);
+                res.status(500).send(err.message);
+            });
+    });
 
-
+    
 
 };
