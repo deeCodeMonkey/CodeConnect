@@ -5,6 +5,8 @@ import * as actions from '../../../actions';
 
 class ProjectList extends Component {
 
+    
+
     render() {
         return (
             <div>
@@ -34,3 +36,6 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps, actions)(ProjectList);
 
+//componentDidMount() {
+//    this.props.fetchOpenProjects();
+//}
