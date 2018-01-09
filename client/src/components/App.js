@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
 import * as actions from '../actions';
+import "./App.css";
 
 
 import Header from './Header';
@@ -39,7 +40,6 @@ class App extends Component {
                         }
                         
                         <Route exact path="/profile" component={ProfileLayout} />
-                        
                     </div>
                 </BrowserRouter>
             </div>
@@ -54,5 +54,6 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(App);
+
 
 

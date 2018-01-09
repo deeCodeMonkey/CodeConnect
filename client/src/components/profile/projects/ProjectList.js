@@ -1,10 +1,9 @@
-﻿import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProjectItem from './ProjectItem';
 
 
 class ProjectList extends Component {
-
     render() {
         return (
             <div>

@@ -13,7 +13,6 @@ const Main = () => {
                 <div className="col s8"><OpenProjectList /></div>
                 <div className="col s4"><ProfileLayout /></div>
             </div>
-
         </div>
     );
 };
