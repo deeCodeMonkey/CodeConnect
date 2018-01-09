@@ -1,0 +1,5 @@
+.container {
+    background-image: url("../assets/img-computer.jpg");
+    object-fit: fill;
+    background-size: cover;
+}
