@@ -13,7 +13,6 @@ const Main = () => {
                 <div className="col s8">8-columns=======<OpenProjectList /></div>
                 <div className="col s4">4-columns=======<ProfileLayout /></div>
             </div>
-
         </div>
     );
 };

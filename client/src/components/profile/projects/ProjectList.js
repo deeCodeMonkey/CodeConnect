@@ -5,8 +5,6 @@ import * as actions from '../../../actions';
 
 class ProjectList extends Component {
 
-    
-
     render() {
         return (
             <div>
