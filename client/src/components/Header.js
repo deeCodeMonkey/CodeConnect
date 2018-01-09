@@ -2,6 +2,7 @@
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import linkedinButton from '../assets/linkedin-button.png';
+import "./Header.css";
 
 
 class Header extends Component {
@@ -11,9 +12,9 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <li><a href="/auth/linkedin"><img src={linkedinButton} className="App-logo" alt="linkedin" /></a></li>;
+                return <li><a id="login-button" href="/auth/linkedin"><img src={linkedinButton} className="log-in" alt="linkedin" /></a></li>;
             default:
-                return <li><a href="/api/logout">Logout</a></li>;
+                return <li><a className="logout-button right btn" href="/api/logout">Logout</a></li>;
         }
     }
 
@@ -21,10 +22,16 @@ class Header extends Component {
         return (
             <nav>
                 <div className="nav-wrapper">
+                    {/* <Link
+                        to={this.props.auth ? '/main' : '/'}
+                        className="brand-logo center"
+                    >C&#333;d-Op
+                    </Link> */}
+                    <h1 className="brand-logo center">C&#333;d-Op</h1>
                     <Link
                         to={this.props.auth ? '/main' : '/'}
-                        className="left brand-logo"
-                    >C&#333;d-Op
+                        className="home-button left btn"
+                    >Home
                     </Link>
                     <ul className="right">
                         {this.renderContent()}
