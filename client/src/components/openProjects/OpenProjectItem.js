@@ -17,16 +17,20 @@ class OpenProjectItem extends Component {
         this.setState({
             projectModal: false
         });
+        
+        window.location.href = "/Main";
     }
 
     render() {
         return (
             <div>
-                <h5>PROJECT ITEM</h5>
-                <h6>{this.props.title}</h6>
+                <h5>{this.props.title}</h5>
+                <div>
+                    <img className="circle responsive-img" src={this.props.image} alt="photo" />
+                </div>
                 <h6>{this.props.dueDate}</h6>
                 <h6>{this.props.requirements}</h6>
-                <button onClick={this.handleOnClick}>{this.props._id}</button>
+                <button onClick={this.handleOnClick}>View Detail</button>
                 <OpenProjectModal projectModal={this.state.projectModal} closeModal={this.closeModalonClick} projectId={this.props._id}/>
             </div>
         );

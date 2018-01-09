@@ -8,7 +8,6 @@ class OpenProjectList extends Component {
 
     state = {
         openProjects: [],
-        filteredProjects: [],
         keyword: '',
         startDate: '',
         endDate: ''
@@ -23,7 +22,6 @@ class OpenProjectList extends Component {
         axios.get('/api/projects')
             .then((response) => {
                 this.setState({
-                    //openProjects: response.data,
                     openProjects: response.data.filter(openProject => !openProject.user[0])
                 });
             })
@@ -31,8 +29,6 @@ class OpenProjectList extends Component {
                 console.log(error);
             });
     };
-
-    
 
     handleInputChange = event => {
         const value = event.target.value;
@@ -54,7 +50,7 @@ class OpenProjectList extends Component {
         axios.post('/api/search', body)
             .then((response) => {
                 this.setState({
-                    openProjects: response.data
+                    openProjects: response.data.filter(openProject => !openProject.user[0])
 
                 });
             })
@@ -67,7 +63,7 @@ class OpenProjectList extends Component {
         return (
             <div>
                 <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
-                <h2>PROJECTS LIST</h2>
+                <h3>OPEN PROJECTS</h3>
                
                 {this.state.openProjects.map((project) => {
                     return (

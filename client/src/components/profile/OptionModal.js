@@ -6,6 +6,7 @@ const OptionModal = (props) => {
     return(
         <Modal
             isOpen={!props.selectModal}
+            ariaHideApp={false}
             contentLabel="Edit Profile Modal">
             <h1>Modal Content</h1>
             <p>Etc.</p>

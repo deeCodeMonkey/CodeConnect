@@ -1,4 +1,5 @@
 import 'materialize-css/dist/css/materialize.min.css';
+import '../index.css';
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -16,7 +17,6 @@ class App extends Component {
     async componentDidMount() {
         await this.props.fetchUser()
         if (this.props.auth._id){
-            //this.props.fetchProfile(this.props.auth._id);
             this.props.fetchUserProjects(this.props.auth._id)
         }
     }
