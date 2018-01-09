@@ -9,7 +9,7 @@ const projectSchema = new Schema({
     requirements: String,
     location: String,
     dueDate: Date,
-
+    //associate to filter
     user: [{
         type: Schema.Types.ObjectId,
         ref: "users"

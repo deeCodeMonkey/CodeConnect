@@ -1,11 +1,9 @@
 ﻿import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProjectItem from './ProjectItem';
-import * as actions from '../../../actions';
+
 
 class ProjectList extends Component {
-
-    
 
     render() {
         return (
@@ -34,8 +32,5 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, actions)(ProjectList);
+export default connect(mapStateToProps)(ProjectList);
 
-//componentDidMount() {
-//    this.props.fetchOpenProjects();
-//}

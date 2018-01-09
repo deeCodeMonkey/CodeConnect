@@ -14,7 +14,6 @@ module.exports = (app) => {
             userData.portfolioSite = req.body.portfoliosite;
             userData.aboutMe = req.body.aboutme;
             userData.skills = req.body.skills;
-            //userData.location = req.body.location;
 
             userData.save()
                 .then((doc) => {
@@ -66,7 +65,7 @@ module.exports = (app) => {
 
     //Get all projects
     app.get("/api/projects", function (req, res) {
-        //res.sendFile(path.join(__dirname, "../index.html"));
+        
         Project.find({})
             .then((docs) => {
                 res.json(docs);
@@ -146,12 +145,9 @@ module.exports = (app) => {
     });
 
 
-    //Add project to user
+    //Add project to user, assign user to project for filtering
     app.post("/api/add/:id", function (req, res) {
-        console.log('called================', req.params.id);
-        
         let openProjectId = req.body.openProjectId;
-        console.log('called2==================', openProjectId);
 
         User.findOneAndUpdate({ _id: req.params.id }, { $push: { project: openProjectId } }, { new: true })
             .then((docs) => {
@@ -174,6 +170,7 @@ module.exports = (app) => {
             });
     });
 
+    //Redirect to refreshed Main page
     
 
 };

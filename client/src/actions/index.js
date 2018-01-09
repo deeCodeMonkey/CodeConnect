@@ -7,18 +7,6 @@ export const fetchUser = () => async dispatch => {
     dispatch({ type: FETCH_USER, payload: res.data });
 };
 
-////uses redux-thunk
-//export const fetchUser = () => {
-//    //return a function, and access to dispatch function
-//    //dispatches action after request is completed
-//    return function (dispatch) {
-//        axios.get('/api/current_user')
-//            .then(res => dispatch({ type: FETCH_USER, payload: res.data }))
-//    }
-
-//};
-
-
 export function submitProfile(values, id, callback) {
     const result = axios.post(`/api/profile/${id}`, values)
         .then(callback());
@@ -49,25 +37,6 @@ export function fetchUserProjects(id) {
 
 };
 
-export function searchProjects(keyword, startDate, endDate) {
-    const result = axios.post("/api/search");
-
-    return {
-        type: SEARCH_PROJECTS,
-        payload: result
-    };
-
-};
-
-export function fetchOpenProjects() {
-    const result = axios.get('/api/projects');
-
-    return {
-        type: FETCH_OPEN_PROJECTS,
-        payload: result
-    };
-
-};
 
 export function fetchProjectById(id) {
     const result = axios.get(`/api/projects/${id}`);
