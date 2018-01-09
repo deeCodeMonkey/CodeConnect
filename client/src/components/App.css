@@ -1,5 +1,13 @@
-.container {
+#full-screen {
     background-image: url("../assets/img-computer.jpg");
-    object-fit: fill;
     background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh !important;
 }
+
+p, h1, h2, h3, h4, h5, li {
+    font-family: 'Poppins', sans-serif;
+}
+
+

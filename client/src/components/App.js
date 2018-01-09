@@ -24,24 +24,26 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
-                <BrowserRouter>
-                    <div>
-                        <Header />
-                        {
-                            (this.props.auth)
-                                ? <Route exact path="/" component={Main} /> 
-                                : <Route exact path="/" component={Landing} /> 
-                        }
-                        {
-                            (this.props.auth)
-                                ? <Route exact path="/main" component={Main} />
-                                : <Route exact path="/main" component={Landing} />
-                        }
-                        
-                        <Route exact path="/profile" component={ProfileLayout} />
-                    </div>
-                </BrowserRouter>
+            <div id="full-screen">
+                <div className="container">
+                    <BrowserRouter>
+                        <div>
+                            <Header />
+                            {
+                                (this.props.auth)
+                                    ? <Route exact path="/" component={Main} /> 
+                                    : <Route exact path="/" component={Landing} /> 
+                            }
+                            {
+                                (this.props.auth)
+                                    ? <Route exact path="/main" component={Main} />
+                                    : <Route exact path="/main" component={Landing} />
+                            }
+                            
+                            <Route exact path="/profile" component={ProfileLayout} />
+                        </div>
+                    </BrowserRouter>
+                </div>
             </div>
         );
     }
