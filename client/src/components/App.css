@@ -6,7 +6,7 @@
     height: 100vh !important;
 }
 
-p, h1, h2, h3, h4, h5, li {
+p, h1, h2, h3, h4, h5, h6 li {
     font-family: 'Poppins', sans-serif;
 }
 

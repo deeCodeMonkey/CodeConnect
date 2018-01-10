@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import "./OpenProjectProfile.css"
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -16,7 +17,10 @@ class OpenProjectProfile extends Component {
     render() {
         return (
             <div>
-                <h5>PROJECT PROFILE</h5>
+                <div id="">
+                    <h5>PROJECT PROFILE</h5>
+                </div>
+                
                 <h6>{this.props.openProject.projectOwner}</h6>
                 <h6>{this.props.openProject.location}</h6>
                 <h6>{this.props.openProject.image}</h6>
