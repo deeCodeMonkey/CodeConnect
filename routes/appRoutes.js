@@ -170,7 +170,7 @@ module.exports = (app) => {
             });
     });
 
-    //Redirect to refreshed Main page
+    //User creates new project
     
 
 };

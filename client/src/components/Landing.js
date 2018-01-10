@@ -1,23 +1,41 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 import LandingModal from './LandingModal';
 import "./Landing.css"
 
 
-const Landing = () => {
+class Landing extends Component {
 
-    return (
+    state = {
+        modalStatus: false
+    }
 
-    <div className="landing-container">
-        <div className="row" >
-            <h3 className="center-align">Code. Create. Network.</h3>
+    modalOpen = () => {
+        this.setState({
+            modalStatus: true
+        });
+    }
 
-            {/* open LandingModal here */}
-            <button className="learn-more modal-trigger" onClick={this.LandingModal}>Learn More</button>
-            
-        </div>
-    </div>
-            
-    );
+    modalClose = () => {
+        this.setState({
+            modalStatus: false
+        });
+    }
+
+    render() {
+        return (
+
+            <div className="landing-container">
+                <div className="row" >
+                    <h3 className="center-align">Code. Create. Network.</h3>
+
+                    {/* open LandingModal here */}
+                    <button className="learn-more modal-trigger" onClick={this.modalOpen}>Learn More</button>
+                    <LandingModal closeModal={this.modalClose} selectModal={this.state.modalStatus} />
+                </div>
+            </div>
+
+        );
+    }
 };
 
 export default Landing;

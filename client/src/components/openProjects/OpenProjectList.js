@@ -22,7 +22,8 @@ class OpenProjectList extends Component {
         axios.get('/api/projects')
             .then((response) => {
                 this.setState({
-                    openProjects: response.data.filter(openProject => !openProject.user[0])
+                    openProjects: response.data.filter(openProject => !openProject.user[0]),
+                    allOpenProjects: response.data.filter(openProject => !openProject.user[0])
                 });
             })
             .catch((error) => {
@@ -62,7 +63,24 @@ class OpenProjectList extends Component {
     render() {
         return (
             <div>
-                <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
+                <OpenProjectSearch
+                    onChange={this.handleInputChange}
+                    keyword={this.state.keyword}
+                    startDate={this.state.startDate}
+                    endDate={this.state.endDate}
+                />
+                <button type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
+                <button type="submit" className="btn btn-default" onClick={() => {
+                    this.setState({
+                        keyword: '',
+                        startDate: '',
+                        endDate: ''
+                    });
+                    this.setState({ openProjects: this.state.allOpenProjects });
+                }}>Clear Filter</button>
+
+
+
                 <h3>OPEN PROJECTS</h3>
                
                 {this.state.openProjects.map((project) => {
