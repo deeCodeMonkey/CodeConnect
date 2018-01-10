@@ -21,13 +21,12 @@ class App extends Component {
         }
     }
 
-
     render() {
+
         return (
-            <div id="full-screen">
-                <div className="container">
+            <div>
                     <BrowserRouter>
-                        <div>
+                    <div>
                             <Header />
                             {
                                 (this.props.auth)
@@ -43,7 +42,6 @@ class App extends Component {
                             <Route exact path="/profile" component={ProfileLayout} />
                         </div>
                     </BrowserRouter>
-                </div>
             </div>
         );
     }
