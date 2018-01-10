@@ -1,14 +1,18 @@
-﻿import React from 'react';
+﻿import "./OpenProjectSearch.css"
+import React from 'react';
 
 const OpenProjectSearch = (props) => {
 
     return (
-            <div>
-                <h5>PROJECT SEARCH</h5>
-                <div className="col s12">
+            <div className="col sm12">
+                <div id="project-search-title" className="valign-wrapper">
+                    <h4>PROJECT SEARCH</h4>
+                </div>
+
+                <div id="search-form">
                 <form>
                     <div className="form-group col s4">
-                        <label>Requirements Keyword(s)</label>
+                        <label>Keyword(s)</label>
                         <input name="keyword" onChange={props.onChange} type="text" className="form-control" id="keyword" placeholder="Keyword" />
                     </div>
                         <div className="form-group col s4">

@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import "./OpenProjectList.css"
+import React, { Component } from 'react';
 import axios from 'axios';
 import OpenProjectItem from './OpenProjectItem';
 import OpenProjectSearch from './OpenProjectSearch';
@@ -62,14 +63,26 @@ class OpenProjectList extends Component {
     render() {
         return (
             <div>
-                <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
-                <h3>OPEN PROJECTS</h3>
-               
-                {this.state.openProjects.map((project) => {
-                    return (
-                        <OpenProjectItem key={project._id} {...project} />
-                    );
-                })}
+                <div>
+                    <OpenProjectSearch onSubmit={this.handleSearchSubmit} onChange={this.handleInputChange} />
+                </div>
+
+                {/* <div className="center-align">
+                    <h2>Projects</h2>
+                </div> */}
+                <div className="col sm12">
+                    <div id="open-project-title" className="valign-wrapper">
+                        <h4>OPEN PROJECTS</h4>
+                    </div>
+                    
+                    <div>
+                        {this.state.openProjects.map((project) => {
+                            return (
+                                <OpenProjectItem key={project._id} {...project} />
+                            );
+                        })}
+                    </div>
+                </div>
             </div>
         );
     }
