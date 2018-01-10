@@ -26,20 +26,7 @@ class OpenProjectItem extends Component {
 
     render() {
         return (
-            // <div>
-            //     <h5>{this.props.title}</h5>
-            //     <div>
-            //         <img className="project-img circle responsive-img" src={this.props.image} alt="photo" />
-            //     </div>
-            //     <h6>{this.props.dueDate}</h6>
-            //     <h6>{this.props.requirements}</h6>
-            //     <button onClick={this.handleOnClick}>View Detail</button>
-            //     <OpenProjectModal projectModal={this.state.projectModal} closeModal={this.closeModalonClick} projectId={this.props._id}/>
-            // </div>
-
-            
-            // tring to put project items into materialize cards for display.
-            <div className="col s12 m8 project-item">
+            <div className="col s12 m12 project-item">
                 <div className="card-image">
                     <img className="project-img circle responsive-img" src={this.props.image} alt="project image" />
                 </div>
