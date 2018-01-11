@@ -2,13 +2,14 @@
 const { Schema } = mongoose;
 
 const projectSchema = new Schema({
-    projectOwner: String,
-    image: String,
-    title: String,
     description: String,
-    requirements: String,
-    location: String,
     dueDate: Date,
+    headline: String,
+    image: String,
+    location: String,
+    projectOwner: String,
+    title: String,
+    requirements: String,
     //associate to filter
     user: [{
         type: Schema.Types.ObjectId,
