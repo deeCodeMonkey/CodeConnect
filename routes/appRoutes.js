@@ -1,5 +1,5 @@
-﻿const path = require("path");
-
+﻿const path = require('path');
+const moment = require('moment');
 const Project = require('../models/Project');
 const User = require('../models/User');
 
@@ -82,8 +82,8 @@ module.exports = (app) => {
 
         //Search criteria
         let requirementsKeyword = req.body.requirementsKeyword;
-        let startDate = req.body.startDate; //format '2018, 1, 1'
-        let endDate = req.body.endDate; //format '2018, 12, 31'
+        let startDate = moment(req.body.startDate).format(); //format '2018, 1, 1'
+        let endDate = moment(req.body.endDate).format(); //format '2018, 12, 31'
 
         let searchCriteria = {};
 
