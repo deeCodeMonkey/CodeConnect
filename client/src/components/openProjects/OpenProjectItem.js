@@ -37,6 +37,8 @@ class OpenProjectItem extends Component {
 
                 <div className="card-stacked">
                     <div className="card-content">
+                        <h6>{this.props.headline}</h6>
+                        <h6>From: {this.props.projectOwner}</h6>
                         <h6>Project: {this.props.title}</h6>
                         <h6>Deadline: {dueDate}</h6>
                         <h6>Requirements: {this.props.requirements}</h6>

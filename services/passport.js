@@ -30,7 +30,7 @@ passport.use(new LinkedInStrategy({
     function (accessToken, refreshToken, profile, done) { 
         //console.log('accessToken', accessToken);
         //console.log('refreshToken', refreshToken);
-        console.log('profile===================', JSON.stringify(profile, null, 2));
+        //console.log('profile===================', JSON.stringify(profile, null, 2));
 
         process.nextTick(function () {
             db.User.findOne({ linkedInId: profile.id })

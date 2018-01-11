@@ -24,7 +24,7 @@ class OpenProjectProfile extends Component {
                 <div id="">
                     <h5>PROJECT PROFILE</h5>
                 </div>
-                
+                <h6>{this.props.openProject.headline}</h6>
                 <h6>{this.props.openProject.projectOwner}</h6>
                 <h6>{this.props.openProject.location}</h6>
                 <h6>{this.props.openProject.image}</h6>
