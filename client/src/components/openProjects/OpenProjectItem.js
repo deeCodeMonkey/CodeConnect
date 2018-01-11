@@ -1,6 +1,7 @@
 ﻿import 'materialize-css/dist/css/materialize.min.css';
 import "./OpenProjectItem.css"
 import React, { Component } from 'react';
+import moment from 'moment';
 import OpenProjectModal from './OpenProjectModal';
 
 
@@ -25,6 +26,9 @@ class OpenProjectItem extends Component {
     }
 
     render() {
+
+        const dueDate = moment(this.props.dueDate).format('LL');
+
         return (
             <div className="col s12 m12 project-item">
                 <div className="card-image">
@@ -33,8 +37,9 @@ class OpenProjectItem extends Component {
 
                 <div className="card-stacked">
                     <div className="card-content">
-                        <h6>{this.props.dueDate}</h6>
-                        <h6>{this.props.requirements}</h6>
+                        <h6>Project: {this.props.title}</h6>
+                        <h6>Deadline: {dueDate}</h6>
+                        <h6>Requirements: {this.props.requirements}</h6>
                         <OpenProjectModal projectModal={this.state.projectModal} closeModal={this.closeModalonClick} projectId={this.props._id}/>
                     </div>
                     

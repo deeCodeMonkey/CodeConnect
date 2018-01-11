@@ -1,5 +1,6 @@
 ﻿import "./OpenProjectProfile.css"
 import React, { Component } from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
@@ -15,6 +16,9 @@ class OpenProjectProfile extends Component {
     }
 
     render() {
+
+        const dueDate = moment(this.props.openProject.dueDate).format('LL');
+
         return (
             <div>
                 <div id="">
@@ -25,7 +29,7 @@ class OpenProjectProfile extends Component {
                 <h6>{this.props.openProject.location}</h6>
                 <h6>{this.props.openProject.image}</h6>
                 <h6>{this.props.openProject.title}</h6>
-                <h6>{this.props.openProject.dueDate}</h6>
+                <h6>{dueDate}</h6>
                 <h6>{this.props.openProject.requirements}</h6>
                 <h6>{this.props.openProject.description}</h6>
             </div>
