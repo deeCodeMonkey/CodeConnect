@@ -8,7 +8,8 @@ const OpenProjectSearch = (props) => {
 
     return (
 
-        <div className="col sm12">
+
+        <div>
             <div id="project-search-title" className="valign-wrapper">
                 <h4>PROJECT SEARCH</h4>
             </div>
@@ -38,8 +39,6 @@ const OpenProjectSearch = (props) => {
                     </div>
                 </form>
             </div>
-
-        </div>
     );
 };
 

@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import "./ProfileInfo.css";
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import ProjectList from './projects/ProjectList';
@@ -21,57 +22,83 @@ class ProfileInfo extends Component {
     render() {
 
         return (
-            <div>
-                <div>
-                    <div>
-                        <div><h5>{this.props.formValues.fullName}</h5></div>
-                        <div>{this.props.formValues.headline}</div>
-                    </div>
-                    <div>
-                        <img className="circle responsive-img" src={this.props.formValues.photo} alt="photo" />
-                    </div>
-                    <div>
-                        {this.props.formValues.location}
+            <div className="row">
+                <div className="col s12 m12">
+
+                    <div id="profile-title" className="valign-wrapper heading">
+                        <h4>PROFILE</h4>
                     </div>
 
-                    <div>
-                        {
-                            (this.props.formValues.aboutMe)
-                                ? <label>About Me</label>
-                                : ''
-                        }
-                        <div>{this.props.formValues.aboutMe}</div>
-                    </div>
-                    <div>
-                        {
-                            (this.props.formValues.skills)
-                                ? <label>Skills</label>
-                                : ''
-                        }
-                        <div>{this.props.formValues.skills}</div>
-                    </div>
+                    <div className="card profile-card">
+                        <div className="card-image">
+                            <img className="circle responsive-img profile-image" src={this.props.formValues.photo} alt="photo" />
+                        </div>
 
-                    <div>
-                        <div className="row">
-                            <div className="col s12">
-                                <a href={this.props.formValues.linkedInProfile} target="_blank"><img src={linkedin} className="icon-site" alt="linkedin" /></a>
+                        <div className="card-content">
 
-                                <a href={this.props.formValues.gitHub} target="_blank"><img src={github} className="icon-site" alt="github" /></a>
+                            <div id="profile-snippet">
+                                <div>
+                                    <h5>{this.props.formValues.fullName}</h5>
+                                </div>
+                                <div>
+                                    <h6>{this.props.formValues.headline}</h6>
+                                </div>
+                                <div>
+                                    <h6>{this.props.formValues.location}</h6>
+                                </div>
+                            </div>
 
-                                <a href={this.props.formValues.stackOverflow} target="_blank"><img src={stackOverflow} className="icon-site" alt="stackoverflow" /></a>
+                            <div id="about-me">
+                                {
+                                    (this.props.formValues.aboutMe)
+                                        ? <label><em>About Me</em></label>
+                                        : ''
+                                }
+                                <div>{this.props.formValues.aboutMe}</div>
+                            </div>
 
-                                <a href={this.props.formValues.portfolioSite} target="_blank"><img src={portfolio} className="icon-site" alt="portfolio" /></a>
+                            <div id="skills">
+                                {
+                                    (this.props.formValues.skills)
+                                        ? <label><em>Skills</em></label>
+                                        : ''
+                                }
+                                <div>{this.props.formValues.skills}</div>
+                            </div>
+
+                            <div>
+                                <button type="button" className="btn" id="edit-profile-button" onClick={this.props.onEditProfile}>
+                                    Edit Profile
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="card-action">
+                            <div>
+                                <div className="row">
+                                    <div className="col s12">
+                                        <a href={this.props.formValues.linkedInProfile} target="_blank"><img src={linkedin} className="icon-site" alt="linkedin" /></a>
+
+                                        <a href={this.props.formValues.gitHub} target="_blank"><img src={github} className="icon-site" alt="github" /></a>
+
+                                        <a href={this.props.formValues.stackOverflow} target="_blank"><img src={stackOverflow} className="icon-site" alt="stackoverflow" /></a>
+
+                                        <a href={this.props.formValues.portfolioSite} target="_blank"><img src={portfolio} className="icon-site" alt="portfolio" /></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <button type="button" className="blue btn-flat white-text" onClick={this.props.onEditProfile}>
-                        Edit Profile
-                    </button>
                 </div>
-                <hr />
-                <div>
-                    < ProjectList />
+            
+                <div className="col sm12 m12">
+                    <div id="my-projects-title" className="valign-wrapper heading">
+                        <h4>MY PROJECTS</h4>
+                    </div>
+
+                    <div>
+                        < ProjectList />
+                    </div>
                 </div>
             </div>
         );
@@ -88,4 +115,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, actions)(ProfileInfo);
+
 

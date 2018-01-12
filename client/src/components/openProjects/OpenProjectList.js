@@ -76,7 +76,8 @@ class OpenProjectList extends Component {
    
     render() {
         return (
-            <div>
+
+            <div  className="col sm12">
 
                 <OpenProjectSearch
                     onChange={this.handleInputChange}
@@ -102,17 +103,23 @@ class OpenProjectList extends Component {
                 <div className="col sm12">
                     <div id="open-project-title" className="valign-wrapper">
                         <h4>OPEN PROJECTS</h4>
+
                     </div>
-                    
+
                     <div>
-                        {this.state.openProjects.map((project) => {
-                            return (
-                                <OpenProjectItem key={project._id} {...project} />
-                            );
-                        })}
+                        <div id="open-project-title" className="valign-wrapper heading">
+                            <h4>OPEN PROJECTS</h4>
+                        </div>
+                        
+                        <div>
+                            {this.state.openProjects.map((project) => {
+                                return (
+                                    <OpenProjectItem key={project._id} {...project} />
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
-
             </div>
         );
     }

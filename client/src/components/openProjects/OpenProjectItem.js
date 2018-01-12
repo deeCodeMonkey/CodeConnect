@@ -31,30 +31,30 @@ class OpenProjectItem extends Component {
 
         return (
             <div className="col s12 m12 project-item">
-                <div className="card-image">
-                    <img className="project-img circle responsive-img" src={this.props.image} alt="project image" />
-                </div>
+                <div className="card horizontal project-card">
 
-                <div className="card-stacked">
-                    <div className="card-content">
-                        <h6>{this.props.headline}</h6>
-                        <h6>From: {this.props.projectOwner}</h6>
-                        <h6>Project: {this.props.title}</h6>
-                        <h6>Deadline: {dueDate}</h6>
-                        <h6>Requirements: {this.props.requirements}</h6>
-                        <OpenProjectModal projectModal={this.state.projectModal} closeModal={this.closeModalonClick} projectId={this.props._id}/>
+                    <div className="card-image">
+                        <img className="project-img circle responsive-img" src={this.props.image} alt="project image" />
                     </div>
-                    
-                    <div className="card-action">
-                        <button onClick={this.handleOnClick}>View Detail</button>
+
+                    <div className="card-stacked">
+
+                        <div className="card-content">
+                            <h6>{this.props.headline}</h6>
+                            <h6>From: {this.props.projectOwner}</h6>
+                            <h6>Project: {this.props.title}</h6>
+                            <h6>Deadline: {dueDate}</h6>
+                            <h6>Requirements: {this.props.requirements}</h6>
+                            <OpenProjectModal projectModal={this.state.projectModal} closeModal={this.closeModalonClick} projectId={this.props._id}/>
+                        </div>
+
+                        <div className="card-action">
+                            <button className="btn" id="open-project-button" onClick={this.handleOnClick}><strong>View Detail</strong></button>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            
-            
-
-            
-
         );
     }
 };
