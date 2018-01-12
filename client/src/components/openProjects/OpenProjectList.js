@@ -63,41 +63,40 @@ class OpenProjectList extends Component {
    
     render() {
         return (
-            <div>
-
-                <OpenProjectSearch
-                    onChange={this.handleInputChange}
-                    keyword={this.state.keyword}
-                    startDate={this.state.startDate}
-                    endDate={this.state.endDate}
-                />
-                <button type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
-                <button type="submit" className="btn btn-default" onClick={() => {
-                    this.setState({
-                        keyword: '',
-                        startDate: '',
-                        endDate: ''
-                    });
-                    this.setState({ openProjects: this.state.allOpenProjects });
-                }}>Clear Filter</button>
-
-                {/* <div className="center-align">
-                    <h2>Projects</h2>
-                </div> */}
-                <div className="col sm12">
-                    <div id="open-project-title" className="valign-wrapper">
-                        <h4>OPEN PROJECTS</h4>
+            <div className="col sm12">
+                <div>
+                    <OpenProjectSearch
+                        onChange={this.handleInputChange}
+                        keyword={this.state.keyword}
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                    />
+                    <div id="search-buttons">
+                        <button type="submit" className="btn btn-default search-button" onClick={this.handleSearchSubmit}>Search</button>
+                        <button type="submit" className="btn btn-default clear-filter-button" onClick={() => {
+                            this.setState({
+                                keyword: '',
+                                startDate: '',
+                                endDate: ''
+                            });
+                            this.setState({ openProjects: this.state.allOpenProjects });
+                        }}>Clear Filter</button>
                     </div>
-                    
+
                     <div>
-                        {this.state.openProjects.map((project) => {
-                            return (
-                                <OpenProjectItem key={project._id} {...project} />
-                            );
-                        })}
+                        <div id="open-project-title" className="valign-wrapper heading">
+                            <h4>OPEN PROJECTS</h4>
+                        </div>
+                        
+                        <div>
+                            {this.state.openProjects.map((project) => {
+                                return (
+                                    <OpenProjectItem key={project._id} {...project} />
+                                );
+                            })}
+                        </div>
                     </div>
                 </div>
-
             </div>
         );
     }

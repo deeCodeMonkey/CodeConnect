@@ -24,17 +24,18 @@ class Landing extends Component {
     render() {
 
         return (
-            <div>
+            <div >
                 <div className="row" id="full-screen">
-                    <h3 className="center-align">Code. Create. Network.</h3>
+                    <div className="center-align landing-content">
 
-                    {/* open LandingModal here */}
-                    <button className="learn-more modal-trigger" onClick={this.modalOpen}>Learn More</button>
+                        <h3 className="center-align code-create-network">Code. Create. Network.</h3>
+
+                        <button className="btn modal-trigger" onClick={this.modalOpen}>Learn More</button>
+                    </div>
+
                     <LandingModal closeModal={this.modalClose} selectModal={this.state.modalStatus} />
                 </div>
-
             </div>
-
         );
     }
 };

@@ -2,6 +2,18 @@
     height: 75px;
     background-color: #58646c;
     color: white;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-bottom: 10px;
+}
+
+#search-buttons {
+    margin: 30px;
+}
+
+.search-button {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.clear-filter-button {
+    margin-top: 10px;
 }

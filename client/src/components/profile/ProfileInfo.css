@@ -1,0 +1,45 @@
+.profile-image {
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+}
+
+#profile-title {
+    height: 75px;
+    background-color: #58646c;
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+#edit-profile-button {
+    margin-top: 10px;
+}
+
+#my-projects-title {
+    height: 75px;
+    background-color: #58646c;
+    color: white;
+    margin-top: 35px;
+    margin-bottom: 25px;
+}
+
+.profile-card {
+    background-color: #ffffe6;
+}
+
+#profile-snippet {
+    padding-bottom: 20px;
+}
+
+#about-me {
+    padding-bottom: 15px;
+}
+
+#skills {
+    padding-bottom: 15px;
+}
+
+.icon-site {
+    height: 40px;
+}

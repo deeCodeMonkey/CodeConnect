@@ -1,5 +1,16 @@
-.learn-more {
-    margin-left: 50%;
-    color: #555555;
-    font-weight: bold;
+.code-create-network {
+    margin-top: 0;
+    padding-top: 30px;
+}
+
+#full-screen {
+    background-image: url("../assets/img-computer.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh !important;
+}
+
+.landing-content {
+    margin-top: 80px;
 }
