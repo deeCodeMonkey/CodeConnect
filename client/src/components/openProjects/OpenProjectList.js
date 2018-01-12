@@ -40,6 +40,19 @@ class OpenProjectList extends Component {
         });
     };
 
+    //date-picker
+    handleStartDateChange = date => {
+        this.setState({
+            startDate: date
+        });
+    }
+    //date-picker
+    handleEndDateChange = date => {
+        this.setState({
+            endDate: date
+        });
+    }
+
     handleSearchSubmit = (event) => {
         event.preventDefault();
 
@@ -70,6 +83,8 @@ class OpenProjectList extends Component {
                     keyword={this.state.keyword}
                     startDate={this.state.startDate}
                     endDate={this.state.endDate}
+                    onChangeStartDate={this.handleStartDateChange}
+                    onChangeEndDate={this.handleEndDateChange}
                 />
                 <button type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
                 <button type="submit" className="btn btn-default" onClick={() => {
