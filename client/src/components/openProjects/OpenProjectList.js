@@ -40,6 +40,19 @@ class OpenProjectList extends Component {
         });
     };
 
+    //date-picker
+    handleStartDateChange = date => {
+        this.setState({
+            startDate: date
+        });
+    }
+    //date-picker
+    handleEndDateChange = date => {
+        this.setState({
+            endDate: date
+        });
+    }
+
     handleSearchSubmit = (event) => {
         event.preventDefault();
 
@@ -63,24 +76,34 @@ class OpenProjectList extends Component {
    
     render() {
         return (
-            <div className="col sm12">
-                <div>
-                    <OpenProjectSearch
-                        onChange={this.handleInputChange}
-                        keyword={this.state.keyword}
-                        startDate={this.state.startDate}
-                        endDate={this.state.endDate}
-                    />
-                    <div id="search-buttons">
-                        <button type="submit" className="btn btn-default search-button" onClick={this.handleSearchSubmit}>Search</button>
-                        <button type="submit" className="btn btn-default clear-filter-button" onClick={() => {
-                            this.setState({
-                                keyword: '',
-                                startDate: '',
-                                endDate: ''
-                            });
-                            this.setState({ openProjects: this.state.allOpenProjects });
-                        }}>Clear Filter</button>
+
+            <div  className="col sm12">
+
+                <OpenProjectSearch
+                    onChange={this.handleInputChange}
+                    keyword={this.state.keyword}
+                    startDate={this.state.startDate}
+                    endDate={this.state.endDate}
+                    onChangeStartDate={this.handleStartDateChange}
+                    onChangeEndDate={this.handleEndDateChange}
+                />
+                <button type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
+                <button type="submit" className="btn btn-default" onClick={() => {
+                    this.setState({
+                        keyword: '',
+                        startDate: '',
+                        endDate: ''
+                    });
+                    this.setState({ openProjects: this.state.allOpenProjects });
+                }}>Clear Filter</button>
+
+                {/* <div className="center-align">
+                    <h2>Projects</h2>
+                </div> */}
+                <div className="col sm12">
+                    <div id="open-project-title" className="valign-wrapper">
+                        <h4>OPEN PROJECTS</h4>
+
                     </div>
 
                     <div>
