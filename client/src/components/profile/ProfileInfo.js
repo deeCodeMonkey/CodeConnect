@@ -65,12 +65,11 @@ class ProfileInfo extends Component {
                                 }
                                 <div>{this.props.formValues.skills}</div>
                             </div>
-
-                            <div>
+                            
                                 <button type="button" className="btn" id="edit-profile-button" onClick={this.props.onEditProfile}>
                                     Edit Profile
                                 </button>
-                            </div>
+                            
                         </div>
 
                         <div className="card-action">

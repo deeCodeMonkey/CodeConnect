@@ -73,7 +73,7 @@ class OpenProjectList extends Component {
                 console.log(error);
             });
     }
-   
+
     render() {
 
         const button = {
@@ -93,30 +93,28 @@ class OpenProjectList extends Component {
                     onChangeStartDate={this.handleStartDateChange}
                     onChangeEndDate={this.handleEndDateChange}
                 />
-                <button style={button} type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
-                <button style={button} type="submit" className="btn btn-default" onClick={() => {
-                    this.setState({
-                        keyword: '',
-                        startDate: '',
-                        endDate: ''
-                    });
-                    this.setState({ openProjects: this.state.allOpenProjects });
-                }}>Clear Filter</button>
+                <div>
+                    <button style={button} type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
+                    <button style={button} type="submit" className="btn btn-default" onClick={() => {
+                        this.setState({
+                            keyword: '',
+                            startDate: '',
+                            endDate: ''
+                        });
+                        this.setState({ openProjects: this.state.allOpenProjects });
+                    }}>Clear Filter</button>
+                </div>
 
                 {/* <div className="center-align">
                     <h2>Projects</h2>
                 </div> */}
                 <div className="col sm12">
-                    <div id="open-project-title" className="valign-wrapper">
-                        <h4>OPEN PROJECTS</h4>
-
-                    </div>
 
                     <div>
                         <div id="open-project-title" className="valign-wrapper heading">
                             <h4>OPEN PROJECTS</h4>
                         </div>
-                        
+
                         <div>
                             {this.state.openProjects.map((project) => {
                                 return (

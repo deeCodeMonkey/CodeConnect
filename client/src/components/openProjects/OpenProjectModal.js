@@ -25,7 +25,7 @@ class OpenProjectModal extends Component {
 
                     <div id="open-project-desc">
                         <OpenProjectProfile projectId={this.props.projectId}/>
-                        <button className="btn add-project-button" onClick={this.onClickHandler}>Add Project to User</button>
+                        <button className="btn add-project-button" onClick={this.onClickHandler}>Add Project</button>
                         <button className="btn" id="close-project-modal" onClick={this.props.closeModal}>CLOSE</button>
                     </div>
                 </div>
