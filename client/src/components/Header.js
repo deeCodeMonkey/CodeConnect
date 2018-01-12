@@ -24,7 +24,7 @@ class Header extends Component {
             // fixed navbar not working...
             <div className="navbar-fixed">
             <nav>
-                <div className="nav-wrapper">
+                    <div className="nav-wrapper">
 
                     <h1 className="brand-logo center">C&#333;d-Op</h1>
 
