@@ -1,0 +1,22 @@
+#open-project-modal-title {
+    height: 75px;
+    background-color: #58646c;
+    color: white;
+    margin-top: 35px;
+}
+
+#open-project-modal {
+    background-color: #ffffe6;
+}
+
+#close-project-modal {
+    float: right;
+}
+
+#open-project-desc {
+    padding: 20px;
+}
+
+.add-project-button {
+    margin-right: 20px;
+}

@@ -1,9 +1,12 @@
-.project-img {
-    height: 40px !important;
+.project-item {
+    padding: 10px !important;
 }
 
-.project-item {
+.project-card {
     background-color: #f2f2f3 !important;
-    padding: 10px !important;
-    margin-bottom: 20px;
+}
+
+#open-project-button {
+    /* background-color: #ffffe6;
+    color: #58646c; */
 }

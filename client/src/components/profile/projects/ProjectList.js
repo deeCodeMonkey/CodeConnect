@@ -6,9 +6,7 @@ import ProjectItem from './ProjectItem';
 class ProjectList extends Component {
     render() {
         return (
-            <div>
-                PROJECTS BOOKED  =================================   
-  
+            <div>  
                 {
                     this.props.profile.project ?
                         this.props.profile.project.map((project) => {

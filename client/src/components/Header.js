@@ -21,24 +21,19 @@ class Header extends Component {
     render() {
         
         return (
+            // fixed navbar not working...
+            <div className="navbar-fixed">
             <nav>
                 <div className="nav-wrapper">
-                    {/* <Link
-                        to={this.props.auth ? '/main' : '/'}
-                        className="brand-logo center"
-                    >C&#333;d-Op
-                    </Link> */}
+
                     <h1 className="brand-logo center">C&#333;d-Op</h1>
-                    <Link
-                        to={this.props.auth ? '/main' : '/'}
-                        className="home-button left btn"
-                    >Home
-                    </Link>
+
                     <ul className="right">
                         {this.renderContent()}
                     </ul>
                 </div>
             </nav>
+            </div>
         );
     }
 }

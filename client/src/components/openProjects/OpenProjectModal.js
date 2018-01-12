@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import "./OpenProjectModal.css";
+import React, { Component } from 'react';
 import Modal from 'react-modal';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
@@ -16,11 +17,18 @@ class OpenProjectModal extends Component {
                 isOpen={this.props.projectModal}
                 ariaHideApp={false}
                 contentLabel="Open Project Modal">
-                <h1>Project Modal Content</h1>
-                <OpenProjectProfile projectId={this.props.projectId}/>
-                <button onClick={this.onClickHandler}>Add Project to User</button>
-                <button onClick={this.props.closeModal}>Close</button>
-               
+                <div id="open-project-modal">
+
+                    <div id="open-project-modal-title" className="valign-wrapper heading">
+                        <h3>PROJECT DETAIL</h3>
+                    </div>
+
+                    <div id="open-project-desc">
+                        <OpenProjectProfile projectId={this.props.projectId}/>
+                        <button className="btn add-project-button" onClick={this.onClickHandler}>Add Project to User</button>
+                        <button className="btn" id="close-project-modal" onClick={this.props.closeModal}>CLOSE</button>
+                    </div>
+                </div>
             </Modal>
         );
     }

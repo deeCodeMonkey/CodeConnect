@@ -1,4 +1,5 @@
-﻿import React, { Component } from 'react';
+﻿import "./ProfileForm.css";
+import React, { Component } from 'react';
 //Field component allows all html form inputs
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
@@ -35,12 +36,14 @@ class ProfileForm extends Component {
                 }>
                     { this.props.auth ? 
                         this.renderFields() : <p>Loading...</p>}
-                    <button type="button" className="red btn-flat white-text" onClick={this.props.onProfileSubmit}>
-                        Cancel
-                    </button>
-                    <button type="submit" className="blue btn-flat right white-text">
+
+                    <button type="submit" className="btn submit-profile">
                         Submit
                     </button>
+
+                    <button type="button" className="btn cancel-submit-profile align-right" onClick={this.props.onProfileSubmit}>
+                        Cancel
+                    </button> 
                 </form>
             </div>
         );
