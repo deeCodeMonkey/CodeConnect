@@ -3,10 +3,11 @@
 }
 
 .project-card {
-    background-color: #f2f2f3 !important;
+    /* background-color: #f2f2f3 !important; */
+    background-color: #d9d9d9;
 }
 
 #open-project-button {
-    background-color: #ffff80;
+    background-color: #f9cf00;
     color: #58646c;
 }
