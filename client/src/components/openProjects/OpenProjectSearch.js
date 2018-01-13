@@ -10,7 +10,7 @@ const OpenProjectSearch = (props) => {
 
 
         <div>
-            <div id="project-search-title" className="valign-wrapper">
+            <div id="project-search-title" className="valign-wrapper heading">
                 <h4>PROJECT SEARCH</h4>
             </div>
 

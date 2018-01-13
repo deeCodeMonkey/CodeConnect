@@ -4,14 +4,15 @@
     color: white;
     margin-top: 50px;
     margin-bottom: 10px;
+    padding-left: 10px !important;
 }
 
 #search-buttons {
-    margin: 30px;
+    margin-left: 25%;
 }
 
 .search-button {
-    margin-right: 10px;
+    margin-right: 20px;
     margin-top: 10px;
 }
 .clear-filter-button {
