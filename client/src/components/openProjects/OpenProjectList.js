@@ -75,15 +75,9 @@ class OpenProjectList extends Component {
     }
 
     render() {
-
-        const button = {
-            marginRight: "20px",
-            marginTop: "20px"
-        }
-
         return (
 
-            <div className="col sm12 center">
+            <div className="col sm12 m12">
 
                 <OpenProjectSearch
                     onChange={this.handleInputChange}
@@ -93,9 +87,9 @@ class OpenProjectList extends Component {
                     onChangeStartDate={this.handleStartDateChange}
                     onChangeEndDate={this.handleEndDateChange}
                 />
-                <div>
-                    <button style={button} type="submit" className="btn btn-default" onClick={this.handleSearchSubmit}>Search</button>
-                    <button style={button} type="submit" className="btn btn-default" onClick={() => {
+                <div id="search-buttons">
+                    <button type="submit" className="btn btn-default search-button" onClick={this.handleSearchSubmit}>Search</button>
+                    <button type="submit" className="btn btn-default clear-filter-button" onClick={() => {
                         this.setState({
                             keyword: '',
                             startDate: '',
@@ -105,10 +99,7 @@ class OpenProjectList extends Component {
                     }}>Clear Filter</button>
                 </div>
 
-                {/* <div className="center-align">
-                    <h2>Projects</h2>
-                </div> */}
-                <div className="col sm12">
+                <div>
 
                     <div>
                         <div id="open-project-title" className="valign-wrapper heading">
